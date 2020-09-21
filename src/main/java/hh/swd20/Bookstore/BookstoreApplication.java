@@ -22,7 +22,7 @@ public class BookstoreApplication {
 	// Your code...add some demo data to db
 		//Auto auto1 = new Auto("Tesla", 2016);
 		//Auto auto2 = new Auto("Saab", 1980);
-		Book book1 = new Book("Hitchhiker's guide to the Galaxy", "Douglas Adams", 1980, "9780517542095", 35.00);
+		Book book1 = new Book("Hitchhiker's guide to the Galaxy", "Douglas Adams", 1980, "978-051-7-54209-5", 35.00);
 		Book book2 = new Book("Merenpeitto", "Olli Jalonen", 2019, "978-951-1-34512-1", 19.95);
 		bookrepository.save(book1);
 		bookrepository.save(book2);
