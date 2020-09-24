@@ -14,12 +14,14 @@
 	<th>Title</th>
 	<th>ISBN</th>
 	<th>Year</th>
+	<th>Price</th>
 	</tr>
 	<tr th:each="book : ${ books }">
 	<td th:text="${ book.getAuthor() }">Author</td> 
 	<td th:text="${ book.getTitle() }">Title</td>
 	<td th:text="${ book.getIsbn() }">ISBN</td>
 	<td th:text="${ book.getYear() }">Year</td>
+	<td th:text="${ book.getPrice() }">Price</td>
 	<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 	<td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit</a></td>
 	</tr>
