@@ -3,6 +3,7 @@
 <head>
 	<title>Bookstore</title>
 	<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 <h3>Add a book</h3>
@@ -20,7 +21,7 @@
 			<label for="year">Year</label>
 			<input type="number" th:field="*{year}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<input type="submit" value="Save"></input>
+			<input type="submit" value="Save" class="btn btn-primary"></input>
 		</form>
 	</div>
 <p></p>

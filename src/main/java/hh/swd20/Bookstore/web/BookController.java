@@ -1,12 +1,11 @@
 package hh.swd20.Bookstore.web;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -52,6 +51,25 @@ public class BookController {
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
     	bookrepository.deleteById(bookId);
         return "redirect:../booklist";
-    }     
+    }
+    
+    //tehtävä c.3.4
+    //annetaan editoitavan kirjan id path variablena ja etsitään se repositorysta
+    // ja liitetään modeliin, sitten siirrytään editoimissivulle
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editBook(@PathVariable("id") Long bookId, Model model) {
+    	model.addAttribute("book", bookrepository.findById(bookId));
+        return "editbook";
+    }    
 
+    
+    //tehtävä c3.4 --> turha koska voi vain laitta editbook-templatessa th:actioniksi ../save jolloin käyttää ylempää save- metodia
+    /*
+    @PostMapping(value = "/edit/save")
+    public String saveEdit(Book book){
+        bookrepository.save(book);
+        return "redirect:booklist";
+    }*/
+    
+    
 }
