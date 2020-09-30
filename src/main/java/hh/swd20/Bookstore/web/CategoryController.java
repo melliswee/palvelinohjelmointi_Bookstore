@@ -21,7 +21,7 @@ public class CategoryController {
 		return "categorylist";
 	}
 	
-    @GetMapping(value = "/add")
+    @GetMapping(value = "/addCategory")
     public String addBook(Model model){
     	model.addAttribute("category", new Category());
         return "addcategory";
