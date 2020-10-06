@@ -3,30 +3,37 @@
 <head>
 	<title>Bookstore</title>
 	<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- <link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
- en keksi miksi tiedostopolku bootstrapiin tms ei kelpaa tässä tiedostossa vaikka muissa se toimii joten laitoin bootstrapin cdn:n-->
+	<!-- bootstrap tiedostoviittauksessa on otettava huomioon viittauksen suhteellisuus, joten "@/css/bootstrap..."-kohdassa on tärkeää muistaa tuo /, jotta css-tiedosto löytyy-->
+	<link type="text/css"rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
 </head>
 <body>
 <h3>Edit a book</h3>
 <div> <!-- Aluksi action oli /save jolloin oli controllerissa /edit/save- endpoint-->
 		<form th:object="${book}" th:action="@{../save}" action="#" method="post">
-		  	<input type="hidden" id="id" value="{ book.getId() }" th:field="*{id}" />
+		  	<input type="hidden" th:field="*{id}" />
 		  	<label for="author">Author</label>
-			<input type="text" id="author" value="{ book.getAuthor() }" th:field="*{author}" />
+			<input type="text" th:field="*{author}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="title">Title</label>
-			<input type="text" id="title" value="{ book.getTitle() }" th:field="*{title}" />
+			<input type="text" th:field="*{title}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="isbn">ISBN</label>
-			<input type="text" id="isbn" value="{ book.getIsbn() }" th:field="*{isbn}" />
+			<input type="text" th:field="*{isbn}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="year">Year</label>
-			<input type="number" value="{ book.getYear() }" th:field="*{year}" />
+			<input type="number" th:field="*{year}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="price">Price</label>
-			<input type="text" value="{ book.getPrice() }" th:field="*{price}" />
+			<input type="text" th:field="*{price}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>					
+		  	<label for="catlist">Category</label>
+			 <select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.getId()}" th:text="${category.getName()}"></option>
+    		</select>
+			
 			<input type="submit" value="Save" class="btn btn-success"></input>
 		</form>
 	</div>

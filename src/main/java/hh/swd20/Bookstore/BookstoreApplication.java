@@ -15,6 +15,7 @@ import hh.swd20.Bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
+	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 
 	//automaattisesti luotu main-metodi
 	public static void main(String[] args) {
@@ -40,15 +41,19 @@ public class BookstoreApplication {
 		bookrepository.save(book2);
 		
 
-		
-		/* log:ia ei saada ratkaistua vaikka on importit?
-		 * log.info("listataan kaikki kirjat");
+		  log.info("listataan kaikki kirjat");
 
-		for(Book book : bookrepository.findAll()) {
-
+		  for(Book book : bookrepository.findAll()) {
 			log.info(book.toString());
 
-		}*/
+		}
+		  
+		  log.info("listataan kaikki kategoriat");
+
+		  for(Category category : categoryrepository.findAll()) {
+			log.info(category.toString());
+
+		}
 		
 	};
 	}
