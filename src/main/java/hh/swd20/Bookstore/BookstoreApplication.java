@@ -35,7 +35,7 @@ public class BookstoreApplication {
 		categoryrepository.save(cat2);
 		categoryrepository.save(cat3);
 
-		Book book1 = new Book("Hitchhiker's guide to the Galaxy", "Douglas Adams", 1980, "978-051-7-54209-5", 35.00, cat1);
+		Book book1 = new Book("Hitchhiker's Guide to the Galaxy", "Douglas Adams", 1980, "978-051-7-54209-5", 35.00, cat1);
 		Book book2 = new Book("Merenpeitto", "Olli Jalonen", 2019, "978-951-1-34512-1", 19.95, cat3);
 		bookrepository.save(book1);
 		bookrepository.save(book2);
