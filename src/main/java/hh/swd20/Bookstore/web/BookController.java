@@ -28,6 +28,16 @@ public class BookController {
 	@Autowired
 	private CategoryRepository crepository;
 	
+	@GetMapping("/")
+	public String FirstPage() {
+		return "login";
+	}
+	
+	@GetMapping("/login")
+	public String LogIn() {
+		return "login";
+	}
+	
 	@GetMapping("/index")
 	public String HelloBooks(Model model) {
 		String msg = "Hello books!";
