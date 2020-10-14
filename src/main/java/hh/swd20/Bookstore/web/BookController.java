@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -71,6 +72,8 @@ public class BookController {
     }
     
   //tehtävä c3.3
+  //tehtävä c6.1 preauthorisointi, näin ei voi poistaa tietokannasta tavallisena käyttäjänä rivejä tietämällä/arvaamalla id:n
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
     	bookrepository.deleteById(bookId);
@@ -88,7 +91,7 @@ public class BookController {
     }    
 
     
-    //tehtävä c3.4 --> turha koska voi vain laitta editbook-templatessa th:actioniksi ../save jolloin käyttää ylempää save- metodia
+    //tehtävä c3.4 --> turha koska voi vain laittaa editbook-templatessa th:actioniksi ../save jolloin käyttää ylempää save- metodia
     /*
     @PostMapping(value = "/edit/save")
     public String saveEdit(Book book){
