@@ -83,6 +83,7 @@ public class BookController {
     
   //tehtävä c3.3
   //tehtävä c6.1 preauthorisointi, näin ei voi poistaa tietokannasta tavallisena käyttäjänä rivejä tietämällä/arvaamalla id:n
+  //hasAuthority kun on tietokantakäyttäjät ja hasRole kun on in-memory users
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {

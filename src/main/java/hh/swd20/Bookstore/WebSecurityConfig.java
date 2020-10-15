@@ -13,7 +13,7 @@ import hh.swd20.Bookstore.web.UserDetailServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)//laitetaan jotta voidaan suojata metodeja
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Autowired
@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
       .formLogin()
       	  .loginPage("/login")
-          .defaultSuccessUrl("/booklist", true)
+          .defaultSuccessUrl("/booklist", true) //jos ei ole trueta tässä, käy joskus niin ettei osaa ohjata ekalla kerralla oikealle sivulle
           .permitAll()
           .and()
       .logout()
