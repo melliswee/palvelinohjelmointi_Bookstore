@@ -35,7 +35,7 @@ public class Category {
 		this.books = new ArrayList<>();
 	}
 
-	public Long getId() {
+	public Long getCategoryid() {
 		return categoryid;
 	}
 
@@ -51,7 +51,7 @@ public class Category {
 		this.books = books;
 	}
 
-	public void setId(Long id) {
+	public void setCategoryid(Long id) {
 		this.categoryid = id;
 	}
 

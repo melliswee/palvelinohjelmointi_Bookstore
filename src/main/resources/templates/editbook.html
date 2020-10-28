@@ -31,7 +31,7 @@
 			<div style="clear: both; display: block; height: 10px;"></div>					
 		  	<label for="catlist">Category</label>
 			 <select id="catlist" th:field="*{category}" class="form-control">
-       			<option th:each="category: ${categories}" th:value="${category.getId()}" th:text="${category.getName()}"></option>
+       			<option th:each="category: ${categories}" th:value="${category.getCategoryid()}" th:text="${category.getName()}"></option>
     		</select>
 			
 			<input type="submit" value="Save" class="btn btn-success"></input>
